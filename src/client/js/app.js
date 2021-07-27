@@ -1,6 +1,6 @@
 /* Global Variables */
 const api_key = '7506705c269c4dfeddfb2d097984031d';
-country_code = 'US';
+const country_code = 'US';
 let baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip='
 
 
@@ -29,14 +29,6 @@ const postToServer = async (url = '', data = {})=>{
             console.log("error", error);
         }
 };
-
-// postData('/add', {date: 'data',
-//                   temparature: 79,
-//                   userResponse: 'Love warm weather'}); 
-
-
-// Fetch weather from Openweathermap api
-
 
 
 const getWeatherFromAPI = async (url = '', zip, api_key)=>{
@@ -74,7 +66,7 @@ const updateUI = async (url = '')=>{
     }
 };
 
-function GetPost(){
+function getPost(){
     const zipcode = document.getElementById("zip").value;
     const feelings = document.getElementById("feelings").value;
     getWeatherFromAPI(baseURL, zipcode, api_key)
@@ -92,15 +84,4 @@ function GetPost(){
 };
 
 
-
-// Get zipcode from user
-
-const generateButton = document.getElementById("generate");
-
-generateButton.addEventListener('click', generateButtonClickEventCallback);
-
-function generateButtonClickEventCallback(event) {
-    // const weatherData = getWeather(baseURL, zipcode, api_key);
-    const weatherData = GetPost();
-    // console.log(weatherData);
-}
+export { getPost }

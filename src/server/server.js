@@ -11,6 +11,8 @@ const bodyParser = require('body-parser');
 // Start up an instance of app
 const app = express();
 
+app.use(express.static('dist'));
+
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
