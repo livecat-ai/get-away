@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
     mode: 'development',
@@ -9,8 +10,6 @@ module.exports = {
     entry: {
         main: path.resolve(__dirname, './src/client/index.js'),
     },
-    mode: 'development',
-    devtool: 'source-map',
     stats: {
         logging: 'verbose',
         colors: true,
@@ -26,6 +25,7 @@ module.exports = {
             filename: 'index.html', // output file
         }),
         new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin( { filename: "[name].css"})
     ],
     module: {
         rules:[
